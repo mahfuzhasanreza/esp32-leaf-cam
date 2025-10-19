@@ -1,0 +1,168 @@
+/home/pk/.local/lib/python3.13/site-packages/tensorflow/lite/python/interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+INFO:     Started server process [6439]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[pi5_server] Loaded TFLite model from '/home/pk/mICROOOOO/leaf_resnet50_float.tflite'.
+INFO:     192.168.0.197:56502 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:56503 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:56504 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:56505 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:56506 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62919 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62920 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62921 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62922 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62923 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62924 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62925 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62926 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62927 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62928 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62929 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62930 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62931 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62932 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62933 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62934 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62935 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62936 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62937 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62938 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62939 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62940 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62941 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62942 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62943 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62944 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62945 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62946 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62947 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62948 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62949 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62950 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62951 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62952 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62953 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62954 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62955 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62956 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62957 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62958 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62959 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62960 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62961 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62962 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62963 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62964 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62965 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62966 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62967 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62968 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62969 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62970 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62971 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62972 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62973 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62974 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62975 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62976 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62977 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62978 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62979 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62980 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62981 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62982 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62983 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62984 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62985 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62986 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62987 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62988 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62989 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62990 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62991 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62992 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62993 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62994 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62995 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62996 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62997 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62998 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:62999 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63000 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63001 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63002 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63003 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63004 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63005 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63006 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63007 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63008 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63009 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63010 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63011 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63012 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63013 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63014 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63015 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63016 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63017 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63018 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63019 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63020 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63021 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63022 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63023 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63024 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63025 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63026 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63027 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63028 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63029 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63030 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63031 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63032 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63033 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63034 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63035 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63036 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63037 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63038 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63039 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63040 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63041 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63042 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63043 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63044 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63045 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63046 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63047 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63048 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63049 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63050 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63051 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63052 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63053 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63054 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63055 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63056 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63057 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63058 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63059 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63060 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63061 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63062 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.197:63063 - "POST /upload HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63064 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63065 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63066 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63067 - "POST /upload HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63068 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.197:63069 - "GET /result HTTP/1.1" 200 OK

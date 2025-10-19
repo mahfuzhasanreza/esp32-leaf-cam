@@ -5,9 +5,9 @@
 // Forward declaration for OLED message function
 void oledMsg(const String& l1, const String& l2 = "", const String& l3 = "");
 // Pi 5 server endpoints (set your Pi 5 IP)
-#define PI5_UPLOAD_URL "http://192.168.0.181:5000/upload"
+#define PI5_UPLOAD_URL "http://192.168.0.181:8000/upload"
 // Optional polling endpoint if you implement it on Pi:
-#define PI5_RESULT_URL "http://192.168.0.181:5000/result"
+#define PI5_RESULT_URL "http://192.168.0.181:8000/result"
 // LED and buzzer pins
 #define GREEN_LED_PIN 27
 #define RED_LED_PIN 26
