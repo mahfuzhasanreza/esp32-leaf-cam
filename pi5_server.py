@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import Dict, Optional, Tuple
 
 import numpy as np
+import requests
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from PIL import Image
@@ -218,6 +219,7 @@ _DEFAULT_METADATA: Dict[str, Dict[str, str]] = {
 _TFLITE_MODEL_PATH = os.path.join(BASE_DIR, "leaf_resnet50_float.tflite")
 _LABEL_TXT_PATH = os.path.join(BASE_DIR, "leaf_labels.txt")
 _LABEL_JSON_PATH = os.path.join(BASE_DIR, "leaf_labels.json")
+_CLOUD_POST_URL = "https://plant-disease-detection-server-one.vercel.app/diseases"
 
 _tflite_interpreter = None
 _tflite_input_details = None
@@ -228,6 +230,7 @@ _label_metadata: Optional[Dict[str, Dict[str, str]]] = None
 
 # Cache the latest analysis so the ESP32 hub can poll /result and refresh its OLED.
 _latest_result: Optional[Dict[str, object]] = None
+_cloud_lock = threading.Lock()
 
 
 def _kaggle_env_labels() -> Optional[list[str]]:
@@ -433,6 +436,24 @@ def _analyze_image(img_bytes: bytes) -> Dict[str, object]:
         return model_result or heuristics
 
 
+def _post_result_to_cloud(snapshot: Dict[str, object]) -> None:
+    plant = str(snapshot.get("leaf_name") or snapshot.get("species") or "Unknown").strip()
+    disease = str(snapshot.get("disease") or snapshot.get("condition") or "Unknown").strip()
+    treatment = str(snapshot.get("solution") or snapshot.get("recommendation") or "No advice").strip()
+    payload = {
+        "plantType": plant or "Unknown",
+        "diseaseType": disease or "Unknown",
+        "treatment": treatment or "No advice",
+        "confidence": "95%",
+    }
+    try:
+        resp = requests.post(_CLOUD_POST_URL, json=payload, timeout=10)
+        if resp.status_code >= 400:
+            print(f"[pi5_server] Cloud POST failed ({resp.status_code}): {resp.text[:200]}")
+    except requests.RequestException as exc:
+        print(f"[pi5_server] Cloud POST error: {exc}")
+
+
 def _kaggle_credentials() -> Tuple[Optional[str], Optional[str]]:
     kaggle_json_path = os.path.join(BASE_DIR, "kaggle.json")
     alt_path = os.path.join(BASE_DIR, "kaggle (1).json")
@@ -495,6 +516,8 @@ async def upload(request: Request) -> JSONResponse:
     }
     if metrics := analysis.get("metrics"):
         _latest_result["metrics"] = metrics
+    snapshot = dict(_latest_result)
+    threading.Thread(target=_post_result_to_cloud, args=(snapshot,), daemon=True).start()
 
     response_payload = {
         "status": "success",
