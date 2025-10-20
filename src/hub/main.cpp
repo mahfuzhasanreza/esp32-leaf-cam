@@ -5,9 +5,9 @@
 // Forward declaration for OLED message function
 void oledMsg(const String& l1, const String& l2 = "", const String& l3 = "");
 // Pi 5 server endpoints (set your Pi 5 IP)
-#define PI5_UPLOAD_URL "http://192.168.0.181:8000/upload"
+#define PI5_UPLOAD_URL "http://10.141.5.128:8000/upload"
 // Optional polling endpoint if you implement it on Pi:
-#define PI5_RESULT_URL "http://192.168.0.181:8000/result"
+#define PI5_RESULT_URL "http://10.141.5.128:8000/result"
 // LED and buzzer pins
 #define GREEN_LED_PIN 27
 #define RED_LED_PIN 26
@@ -35,19 +35,18 @@ void startBuzzerPulse(unsigned long durationMs = 5000);
 
 void showResultOnOLED(const String& leaf, const String& disease, const String& solution) {
   clearProcessingState();
-  oledMsg("Leaf: " + leaf, "Disease: " + disease, "Solution: " + solution);
+  String safeLeaf = leaf.length() ? leaf : "Unknown Leaf";
+  String safeDisease = disease.length() ? disease : "Unknown";
+  String safeSolution = solution.length() ? solution : "No advice";
+  oledMsg("Leaf: " + safeLeaf, "Disease: " + safeDisease, "Solution: " + safeSolution);
   gResultDisplayed = true;
   gWaitingForResult = false;
   gPendingTimestamp = "";
-  gPendingLeaf = "";
-  gPendingDisease = "";
-  gPendingSolution = "";
-  gGreenPulseActive = false;
-  gGreenPulseEndMs = 0;
-  digitalWrite(GREEN_LED_PIN, LOW);
-  gBuzzerActive = false;
-  gBuzzerEndMs = 0;
-  digitalWrite(BUZZER_PIN, HIGH);
+  gPendingLeaf = safeLeaf;
+  gPendingDisease = safeDisease;
+  gPendingSolution = safeSolution;
+  startGreenPulse(1500);
+  startBuzzerPulse(400);
 }
 
 void setProcessingState() {
@@ -155,8 +154,8 @@ Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, OLED_RESET);
 #endif
 
 // WiFi credentials (fill in your network)
-const char* WIFI_SSID = "Room-1010";
-const char* WIFI_PASS = "room1010";
+const char* WIFI_SSID = "PK";
+const char* WIFI_PASS = "provat07";
 
 // ====== Protocol with camera ======
 // Camera sends: 'P''V''I''C' + 4-byte BE length + 2-byte BE CRC16 + JPEG bytes
@@ -189,7 +188,8 @@ static bool uploadToPi(const uint8_t* jpg,
                        String* outLeaf = nullptr,
                        String* outDisease = nullptr,
                        String* outSolution = nullptr,
-                       String* outTimestamp = nullptr) {
+                       String* outTimestamp = nullptr,
+                       bool* outHasResult = nullptr) {
   if (WiFi.status() != WL_CONNECTED) {
     outErr = "WiFi not connected";
     Serial.println(F("[uploadToPi] WiFi not connected"));
@@ -224,25 +224,31 @@ static bool uploadToPi(const uint8_t* jpg,
   // Try parse JSON response for optional fields
   DynamicJsonDocument doc(2048);
   DeserializationError jerr = deserializeJson(doc, body);
+  bool hasResult = false;
   if (!jerr) {
+    String leaf = doc["leaf_name"] | doc["species"] | "";
+    String diseaseVal = doc["disease"] | doc["condition"] | "";
+    String solutionVal = doc["solution"] | doc["recommendation"] | "";
     if (outLeaf) {
-      const char* leaf = doc["leaf_name"] | doc["species"] | "";
       *outLeaf = leaf;
     }
     if (outDisease) {
-      const char* diseaseVal = doc["disease"] | doc["condition"] | "";
       *outDisease = diseaseVal;
     }
     if (outSolution) {
-      const char* solutionVal = doc["solution"] | doc["recommendation"] | "";
       *outSolution = solutionVal;
+    }
+    if (leaf.length() || diseaseVal.length() || solutionVal.length()) {
+      hasResult = true;
     }
     if (outTimestamp) {
       const char* tsVal = doc["timestamp"] | "";
       *outTimestamp = tsVal;
     }
   }
-  startGreenPulse(800);
+  if (outHasResult) {
+    *outHasResult = hasResult;
+  }
   return true;
 }
 
@@ -407,18 +413,58 @@ void handleCapture() {
   if (ok) {
     // Try uploading to Pi 5
     String leaf, disease, solution, timestamp, uerr;
-    bool up = uploadToPi(lastImage.data(), lastImage.size(), uerr, &leaf, &disease, &solution, &timestamp);
+    bool hasResult = false;
+    bool up = uploadToPi(
+      lastImage.data(),
+      lastImage.size(),
+      uerr,
+      &leaf,
+      &disease,
+      &solution,
+      &timestamp,
+      &hasResult
+    );
     if (up) {
-      gPendingLeaf = leaf.length() ? leaf : "OK";
-      gPendingDisease = disease;
-      gPendingSolution = solution;
-      gPendingTimestamp = timestamp;
-      if (!gPendingTimestamp.length()) {
-        gPendingTimestamp = String(millis());
+      if (hasResult) {
+        String displayLeaf = leaf.length() ? leaf : "Unknown Leaf";
+        String displayDisease = disease.length() ? disease : "Unknown";
+        String displaySolution = solution.length() ? solution : "No advice";
+        String displayTimestamp = timestamp.length() ? timestamp : String(millis());
+        showResultOnOLED(displayLeaf, displayDisease, displaySolution);
+        gDisplayedTimestamp = displayTimestamp;
+
+        DynamicJsonDocument resp(512);
+        resp["ok"] = true;
+        resp["uploaded"] = true;
+        resp["bytes"] = len;
+        resp["leaf_name"] = displayLeaf;
+        resp["disease"] = displayDisease;
+        resp["solution"] = displaySolution;
+        resp["timestamp"] = displayTimestamp;
+        String body;
+        serializeJson(resp, body);
+        server.send(200, "application/json", body);
+      } else {
+        gPendingLeaf = leaf.length() ? leaf : "OK";
+        gPendingDisease = disease;
+        gPendingSolution = solution;
+        gPendingTimestamp = timestamp;
+        if (!gPendingTimestamp.length()) {
+          gPendingTimestamp = String(millis());
+        }
+        gWaitingForResult = true;
+        gResultDisplayed = false;
+        oledMsg("Processing...", "Waiting for Pi");
+
+        DynamicJsonDocument resp(256);
+        resp["ok"] = true;
+        resp["uploaded"] = true;
+        resp["bytes"] = len;
+        resp["waiting"] = true;
+        String body;
+        serializeJson(resp, body);
+        server.send(200, "application/json", body);
       }
-      gWaitingForResult = true;
-      gResultDisplayed = false;
-      server.send(200, "application/json", String("{\"ok\":true,\"uploaded\":true,\"bytes\":") + String(len) + "}");
     } else {
       clearProcessingState();
       digitalWrite(RED_LED_PIN, HIGH);
@@ -620,16 +666,35 @@ void loop() {
     if (ok) {
       // Upload to Pi 5 after capture
       String leaf, disease, solution, timestamp, uerr;
-      if (uploadToPi(lastImage.data(), lastImage.size(), uerr, &leaf, &disease, &solution, &timestamp)) {
-        gPendingLeaf = leaf.length() ? leaf : "OK";
-        gPendingDisease = disease;
-        gPendingSolution = solution;
-        gPendingTimestamp = timestamp;
-        if (!gPendingTimestamp.length()) {
-          gPendingTimestamp = String(millis());
+      bool hasResult = false;
+      if (uploadToPi(
+            lastImage.data(),
+            lastImage.size(),
+            uerr,
+            &leaf,
+            &disease,
+            &solution,
+            &timestamp,
+            &hasResult)) {
+        if (hasResult) {
+          String displayLeaf = leaf.length() ? leaf : "Unknown Leaf";
+          String displayDisease = disease.length() ? disease : "Unknown";
+          String displaySolution = solution.length() ? solution : "No advice";
+          String displayTimestamp = timestamp.length() ? timestamp : String(millis());
+          showResultOnOLED(displayLeaf, displayDisease, displaySolution);
+          gDisplayedTimestamp = displayTimestamp;
+        } else {
+          gPendingLeaf = leaf.length() ? leaf : "OK";
+          gPendingDisease = disease;
+          gPendingSolution = solution;
+          gPendingTimestamp = timestamp;
+          if (!gPendingTimestamp.length()) {
+            gPendingTimestamp = String(millis());
+          }
+          gWaitingForResult = true;
+          gResultDisplayed = false;
+          oledMsg("Processing...", "Waiting for Pi");
         }
-        gWaitingForResult = true;
-        gResultDisplayed = false;
       } else {
         clearProcessingState();
         digitalWrite(RED_LED_PIN, HIGH);

@@ -166,3 +166,340 @@ INFO:     192.168.0.197:63066 - "GET /result HTTP/1.1" 200 OK
 INFO:     192.168.0.197:63067 - "POST /upload HTTP/1.1" 200 OK
 INFO:     192.168.0.197:63068 - "GET /result HTTP/1.1" 200 OK
 INFO:     192.168.0.197:63069 - "GET /result HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "/home/pk/mICROOOOO/.venv/bin/uvicorn", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 70, in serve
+    await self._serve(sockets)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 77, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/config.py", line 435, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/pk/mICROOOOO/pi5_server.py", line 10, in <module>
+    from fastapi import FastAPI, Request
+ImportError: cannot import name 'FastAPI' from 'fastapi' (/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/fastapi/__init__.py)
+Traceback (most recent call last):
+  File "/home/pk/mICROOOOO/.venv/bin/uvicorn", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 70, in serve
+    await self._serve(sockets)
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/server.py", line 77, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/config.py", line 435, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/pk/mICROOOOO/pi5_server.py", line 10, in <module>
+    from fastapi import FastAPI, Request
+ImportError: cannot import name 'FastAPI' from 'fastapi' (/home/pk/mICROOOOO/.venv/lib/python3.13/site-packages/fastapi/__init__.py)
+INFO:     Started server process [7923]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[pi5_server] No TFLite runtime available; using heuristic analysis.
+INFO:     192.168.0.200:60647 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60648 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60649 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60650 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60651 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60652 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60653 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60654 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60655 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60656 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60657 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60658 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60659 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60660 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60661 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60662 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60663 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60664 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60665 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60666 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60667 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60668 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60669 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60670 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60671 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60672 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60673 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60674 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60675 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60676 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60677 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60678 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60679 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60680 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60681 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60682 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60683 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60684 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60685 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60686 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60687 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60688 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60689 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60690 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60691 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60692 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60693 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60694 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60695 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60696 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60697 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60698 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60699 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60700 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60701 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60702 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60703 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60704 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60705 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60706 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60707 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60708 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60709 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60710 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60711 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60712 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60713 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60714 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60715 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60716 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60717 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60718 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60719 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60720 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60721 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60722 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60723 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60724 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60725 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60726 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60727 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60728 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60729 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60730 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60731 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60732 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60733 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60734 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60735 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60736 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60737 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60738 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60739 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60740 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60741 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60742 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60743 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60744 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60745 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60746 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60747 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60748 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60749 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60750 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60751 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60752 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60753 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60754 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60755 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60756 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60757 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60758 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60759 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60760 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60761 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60762 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60763 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60764 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60765 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60766 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60767 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60768 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60769 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60770 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60771 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60772 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60773 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60774 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60775 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60776 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60777 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60778 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60779 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60780 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60781 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60782 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60783 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60784 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60785 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60786 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60787 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60788 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60789 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60790 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60791 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60792 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60793 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60794 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60795 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60796 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60797 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60798 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60799 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60800 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60801 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60802 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60803 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60804 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60805 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60806 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60807 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60808 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60809 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60810 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60811 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60812 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60813 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60814 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60815 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60816 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60817 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60818 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60819 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60820 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60821 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60822 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60823 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60824 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60825 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60826 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60827 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60828 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60829 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60830 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60831 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60832 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60833 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60834 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60835 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60836 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60837 - "GET /result HTTP/1.1" 404 Not Found
+INFO:     192.168.0.200:60838 - "POST /upload HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60839 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60840 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60841 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60842 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60843 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60844 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60845 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:60846 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:50676 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:50677 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:50678 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57635 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57636 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57637 - "POST /upload HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57638 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57639 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57640 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.0.200:57641 - "GET /result HTTP/1.1" 200 OK
